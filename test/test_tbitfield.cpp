@@ -199,7 +199,6 @@ TEST(TBitField, and_operator_applied_to_bitfields_of_equal_size)
   // bf2 = 0101
   bf2.SetBit(1);
   bf2.SetBit(3);
-
   // expBf = 0001
   expBf.SetBit(3);
 
