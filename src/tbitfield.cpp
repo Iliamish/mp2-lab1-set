@@ -149,6 +149,22 @@ TBitField TBitField::operator~(void) // отрицание
 
 istream &operator>>(istream &istr, TBitField &bf) // ввод
 {
+	//При условии корректного ввода
+	char* field;
+	istr >> field;
+	int i = 0;
+	while (field[i] != '\0') {
+		i++;
+	}
+	i--;
+	TBitField bit(i);
+	while (i >= 0) {
+		if (field[i] == '1')
+			bit.SetBit(i);
+		i--;
+	}
+	bf = bit;
+
 	return istr;
 }
 
