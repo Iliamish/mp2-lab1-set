@@ -151,6 +151,19 @@ TEST(TBitField, compare_equal_bitfields_of_equal_size)
   EXPECT_EQ(bf1, bf2);
 }
 
+TEST(TBitField, no_delete_mem_if_selfassignment)
+{
+	const int size = 7;
+	TBitField bf1(size);
+	bf1.SetBit(2);
+	bf1.SetBit(3);
+	TBitField bf2(bf1);
+	
+	bf1 = bf1;
+
+	EXPECT_EQ(bf2, bf1);
+}
+
 TEST(TBitField, or_operator_applied_to_bitfields_of_equal_size)
 {
   const int size = 4;
